@@ -6,7 +6,8 @@ import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoute.js";
 
 // configure env
-dotenv.config();
+dotenv.config({ path: ".env" });
+console.log(process.env.jWT_SECRET);
 
 // DataBase Connected
 connectDB();

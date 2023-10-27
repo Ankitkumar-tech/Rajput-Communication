@@ -1,5 +1,4 @@
 import UserModel from "../models/userModel.js";
-import userModel from "../models/userModel.js";
 import { comparePassword, hashPassword } from "../utils/authHelper.js";
 // import { JsonWebTokenError } from "jsonwebtoken";
 import JWT from "jsonwebtoken";
@@ -29,7 +28,7 @@ export const registerController = async (req, res) => {
 
     // check for existing user
 
-    const existingUser = await userModel.findOne({ email });
+    const existingUser = await UserModel.findOne({ email });
     if (existingUser) {
       return res.status(200).send({
         success: true,
@@ -42,7 +41,7 @@ export const registerController = async (req, res) => {
     // function in helper.js
 
     const hashedPassword = await hashPassword(password);
-    const user = await new userModel({
+    const user = await new UserModel({
       name,
       email,
       phone,
@@ -106,8 +105,8 @@ export const loginController = async (req, res) => {
       success: true,
       message: "user login successful",
       user: {
-        name: user.name,
-        email: user.email,
+        name: user?.name,
+        email: user?.email,
         phone: user?.phone,
         address: user?.address,
       },
@@ -121,4 +120,10 @@ export const loginController = async (req, res) => {
       error,
     });
   }
+};
+// testController
+
+export const testController = async (req, res) => {
+  // console.log("protected routes")
+  res.send("protected routes");
 };
