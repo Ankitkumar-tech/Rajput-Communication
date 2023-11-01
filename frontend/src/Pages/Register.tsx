@@ -1,17 +1,19 @@
+
 import React, { useState } from "react";
-import "./register.css";
+// import "./register.css";
+import "./Register.css"
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import bootstrap from "bootstrap";
 const Register = () => {
-  const [text, setText] = useState("");
-  const [mail, setMail] = useState("");
-  const [password, setPassword] = useState("");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
+  const [text, setText] = useState<string>("");
+  const [mail, setMail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+  const [address, setAddress] = useState<string>("");
 
-  function handleSubmit(event) {
+  function handleSubmit(event:React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     console.log(text, mail, password, phone, address);
     const userData = {
@@ -89,7 +91,7 @@ const Register = () => {
         </div>
         <div className="input-box">
           <input
-            type="password"
+            type="text"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             placeholder="Enter your address"
