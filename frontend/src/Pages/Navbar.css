@@ -1,0 +1,51 @@
+.Nav-mainDiv {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  }
+  
+  .Nav-mainDiv > ul {
+    display: flex;
+    margin: auto;
+  }
+  
+  .Nav-mainDiv > ul > li {
+    display: flex;
+    padding: 20px;
+    font-size: large;
+    font-weight: 400;
+  }
+  
+  .Nav_logo_img {
+    width: 10%;
+    height: 100%;
+  }
+  
+  .Nav-mainDiv > ul > li:hover {
+    cursor: pointer;
+    background-color: teal;
+  }
+  
+  /* Media query for screens with a maximum width of 768px (typical mobile screen size) */
+  @media (max-width: 768px) {
+    .Nav-mainDiv {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .Nav-mainDiv > ul {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .Nav-mainDiv > ul > li {
+      margin: 10px;
+      padding: 0;
+    }
+  
+    .Nav-mainDiv > ul > li:hover {
+      background-color: initial;
+    }
+  }
+  
