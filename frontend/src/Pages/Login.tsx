@@ -24,7 +24,7 @@ const Login = () => {
     };
 
     axios
-      .post("http://localhost:8080/api/v1/auth/register", userData)
+      .post("http://localhost:8000/api/v1/auth/register", userData)
       .then(function (response) {
         // Handle a successful response from the server
         console.log("Registration successful: ", response.data);

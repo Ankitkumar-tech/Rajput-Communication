@@ -24,7 +24,7 @@ const Register: React.FC = () => {
         phone: phone,
       };
 
-      const response = await axios.post('http://localhost:8080/api/v1/auth/register', userData);
+      const response = await axios.post('http://localhost:8000/api/v1/auth/register', userData);
 
       toast.success(response.data.message);
       navigate('/login');
