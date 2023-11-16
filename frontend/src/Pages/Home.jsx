@@ -1,6 +1,8 @@
 import Navbar from "./Navbar";
 // import AliceCarousel from 'react-alice-carousel';
 // import 'react-alice-carousel/lib/alice-carousel.css';
+
+import { useAuth } from "../Context/auth";
 export const Home = () => {
   // const items =[
   //     <><img src="https://d39vol41m7feya.cloudfront.net/1600098975-pngtree-simple-red-shading-background-illustration-design-backgroundscience-and-technologyred-image_70514.jpg" alt="" className="sliderimg" />
@@ -11,10 +13,14 @@ export const Home = () => {
   //     <img  src="https://images.unsplash.com/photo-1484704849700-f032a568e944?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aGVhZHBob25lc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="" />,
   //     <img  src="https://images.unsplash.com/photo-1603539444875-76e7684265f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2hhcmdlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt=""  />
   // ]
+
+  const [auth, setAuth] = useAuth();
+  console.log(auth?.user?.name, "auth");
   return (
     <>
       <Navbar />
       <h1> Welcome to Homepage</h1>
+      <h1>{JSON.stringify(auth?.user, null, 4)}</h1>
       {/* <AliceCarousel mouseTracking items={items} /> */}
     </>
   );
