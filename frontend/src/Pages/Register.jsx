@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
-
-const Register: React.FC = () => {
-  const [text, setText] = useState<string>('');
-  const [mail, setMail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [phone, setPhone] = useState<string>('');
-  const [address, setAddress] = useState<string>('');
+// import React from "react";
+import { useState } from "react";
+// import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+// import { toast, ToastContainer } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+import "./Register.css";
+const Register = () => {
+  const [text, setText] = useState("");
+  const [mail, setMail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
@@ -24,13 +26,16 @@ const Register: React.FC = () => {
         phone: phone,
       };
 
-      const response = await axios.post('http://localhost:8000/api/v1/auth/register', userData);
+      const response = await axios.post(
+        "http://localhost:8000/api/v1/auth/register",
+        userData
+      );
 
-      toast.success(response.data.message);
-      navigate('/login');
+      alert(response.data.message);
+      navigate("/login");
     } catch (error) {
-      toast.error('Registration failed. Please try again.');
-      console.error('Registration failed:', error);
+      //   toast.error("Registration failed. Please try again.");
+      console.error("Registration failed:", error);
     }
   };
 
@@ -96,7 +101,7 @@ const Register: React.FC = () => {
           </h3>
         </div>
       </form>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
     </div>
   );
 };

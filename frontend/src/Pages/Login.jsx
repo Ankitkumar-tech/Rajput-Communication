@@ -1,26 +1,23 @@
-
-import React, { useState } from "react";
+import { useState } from "react";
 // import "./register.css";
-import "./Register.css"
+import "./Register.css";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
 // import bootstrap from "bootstrap";
 const Login = () => {
-//   const [text, setText] = useState<string>("");
-  const [mail, setMail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const navigate =useNavigate()
+  //   const [text, setText] = useState<string>("");
+  const [mail, setMail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  function handleSubmit(event:React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(event) {
     event.preventDefault();
-    console.log( mail, password);
+    console.log(mail, password);
     const userData = {
-      
       email: mail,
       password: password,
-      
     };
 
     axios
@@ -28,8 +25,8 @@ const Login = () => {
       .then(function (response) {
         // Handle a successful response from the server
         console.log("Registration successful: ", response.data);
-        toast(response.data.message);
-        navigate("/")
+        alert(response.data.message);
+        navigate("/");
         // You can also perform actions like redirecting the user after successful registration.
       })
       .catch(function (error) {
@@ -53,7 +50,6 @@ const Login = () => {
         </span>
       </h2>
       <form onSubmit={handleSubmit}>
-       
         <div className="input-box">
           <input
             type="text"
@@ -72,7 +68,7 @@ const Login = () => {
             required
           />
         </div>
-       
+
         <div className="policy">
           <input type="checkbox" />
           <h3>I accept all terms &amp; condition</h3>
@@ -82,11 +78,11 @@ const Login = () => {
         </div>
         <div className="text">
           <h3>
-            Don't have an account? <Link to="/register">Register Now</Link>
+            have an account? <Link to="/register">Register Now</Link>
           </h3>
         </div>
       </form>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
     </div>
   );
 };
