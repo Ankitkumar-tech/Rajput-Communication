@@ -4,10 +4,11 @@ import { useAuth } from "../Context/auth";
 import "./Register.css";
 import axios from "axios";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 // import bootstrap from "bootstrap";
 const Login = () => {
   const [auth, setAuth] = useAuth();
+  const location = useLocation();
   //   const [text, setText] = useState<string>("");
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
@@ -39,7 +40,7 @@ const Login = () => {
             token: response?.data?.token,
           });
           localStorage.setItem("auth", JSON.stringify(response.data));
-          navigate("/");
+          navigate(location.state || "/");
           alert(response.data.message);
           console.log(response.data);
         } else {

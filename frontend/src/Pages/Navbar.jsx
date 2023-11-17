@@ -23,7 +23,10 @@ const Navbar = () => {
       />
       <ul>
         <li>
-          <Link style={{ textDecoration: "none", color: "black" }} to={"/"}>
+          <Link
+            style={{ textDecoration: "none", color: "black" }}
+            to={"/mobileProduct"}
+          >
             {" "}
             Product{" "}
           </Link>
